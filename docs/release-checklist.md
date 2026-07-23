@@ -31,14 +31,15 @@
 - [x] ZIP 中包含 README 和 LICENSE。
 - [x] SHA-256 文件可以重复生成。
 - [x] ZIP 可安装到全新项目并运行最小示例。
-- [ ] GitHub Actions 在 Linux 上通过完整验证。
+- [x] GitHub Actions 在 Linux 上通过完整验证。
 
 ## 正式发布
 
-- [ ] 创建 `XinXingNOVA/discrete-runtime` 公开仓库。
+- [x] 创建 `XinXingNOVA/discrete-runtime` 仓库并推送候选版本。
+- [ ] 将仓库可见性改为 Public。
 - [ ] 核对仓库描述、Topics 和默认分支设置。
-- [ ] 推送干净的首个提交并等待 CI 通过。
-- [ ] 将 `CHANGELOG.md` 中的待发布日期替换为实际日期。
+- [x] 推送干净的首个提交并等待 CI 通过。
+- [x] 将 `CHANGELOG.md` 中的待发布日期替换为实际日期。
 - [ ] 创建签名或受保护的 `v0.1.0` 标签。
 - [ ] 建立 GitHub Release 并上传 ZIP 与 SHA-256。
 - [ ] 从 GitHub 下载发布附件并再次验证哈希与安装。

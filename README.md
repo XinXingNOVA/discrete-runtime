@@ -89,7 +89,7 @@ GODOT_BIN=/path/to/godot scripts/verify_release_package.sh
 - `Offer`、`Commit`、`ContentPack`、`Projector` 等上层模式可以与 Runtime 配合，
   但使用 Runtime 并不要求采用它们。
 
-当前验证基线为 Godot 4.6.3。首个公开版本计划为 `v0.1.0`；在 `1.0.0` 之前，
+当前版本为 `v0.1.0`，验证基线为 Godot 4.6.3。在 `1.0.0` 之前，
 公共 API 仍可能根据跨领域实现证据发生不兼容调整，变更会记录在版本说明中。
 
 ## 许可证
