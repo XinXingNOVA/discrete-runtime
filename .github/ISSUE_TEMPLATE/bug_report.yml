@@ -1,0 +1,65 @@
+name: 缺陷报告
+description: 报告 Runtime 行为、安装或文档问题
+title: "[Bug] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢你报告问题。请尽量提供可以独立运行的最小复现。
+  - type: input
+    id: runtime_version
+    attributes:
+      label: Runtime 版本
+      placeholder: 例如 v0.1.0
+    validations:
+      required: true
+  - type: input
+    id: godot_version
+    attributes:
+      label: Godot 版本
+      placeholder: 例如 4.6.3
+    validations:
+      required: true
+  - type: input
+    id: operating_system
+    attributes:
+      label: 操作系统
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: 问题描述
+      description: 发生了什么？这是否可以稳定复现？
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 最小复现
+      description: 请提供最少代码、阶段装配和复现步骤。
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望语义
+      description: 请描述期望的 Entry 顺序、出口或状态。
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: 实际轨迹与日志
+      render: text
+    validations:
+      required: true
+  - type: checkboxes
+    id: boundaries
+    attributes:
+      label: 确认
+      options:
+        - label: 我已确认问题来自 Runtime，而不是具体玩法或 UI。
+          required: true
+        - label: 我已删除日志中的密钥、账号和其他敏感信息。
+          required: true

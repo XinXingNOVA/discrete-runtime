@@ -1,0 +1,50 @@
+name: Runtime 变更提案
+description: 提出新的核心调度能力或公共语义调整
+title: "[Runtime Proposal] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Runtime 优先保持小而确定。单个项目的便利性需求应先通过领域扩展解决。
+  - type: textarea
+    id: rule
+    attributes:
+      label: 无法表达的领域规则
+      description: 请用自然语言描述最小规则，不要先给出新 API。
+    validations:
+      required: true
+  - type: textarea
+    id: current_attempt
+    attributes:
+      label: 使用现有扩展点的尝试
+      description: 说明已尝试的 Phase、Entry、Handler、Applier、Processor、Emitter 或 Interpreter。
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 最小失败证据
+      description: 提供当前轨迹、目标轨迹和可以运行的最小复现。
+    validations:
+      required: true
+  - type: textarea
+    id: domains
+    attributes:
+      label: 跨领域证据
+      description: 同一缺口还出现在哪些不同领域？如果目前只有一个，请明确说明。
+    validations:
+      required: true
+  - type: textarea
+    id: boundary
+    attributes:
+      label: 为什么属于 Runtime
+      description: 解释它为什么是通用调度语义，而不是内容、UI、资源、联网或存档架构。
+    validations:
+      required: true
+  - type: textarea
+    id: contract
+    attributes:
+      label: 建议的契约测试
+      description: 描述最小输入、确定性顺序和期望出口。
+    validations:
+      required: true

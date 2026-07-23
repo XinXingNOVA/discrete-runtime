@@ -1,0 +1,47 @@
+name: Runtime validation
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+
+      - name: Install Godot 4.6.3
+        shell: bash
+        run: |
+          set -euo pipefail
+          archive="$RUNNER_TEMP/godot.zip"
+          godot_bin="$RUNNER_TEMP/godot"
+          curl --fail --location \
+            "https://github.com/godotengine/godot/releases/download/4.6.3-stable/Godot_v4.6.3-stable_linux.x86_64.zip" \
+            --output "$archive"
+          unzip -q "$archive" -d "$RUNNER_TEMP/godot-unpacked"
+          mv "$RUNNER_TEMP/godot-unpacked/Godot_v4.6.3-stable_linux.x86_64" "$godot_bin"
+          chmod +x "$godot_bin"
+          printf 'GODOT_BIN=%s\n' "$godot_bin" >> "$GITHUB_ENV"
+
+      - name: Check Runtime boundaries
+        run: scripts/check_boundaries.sh
+
+      - name: Run minimal example
+        run: scripts/run_example.sh
+
+      - name: Run Runtime contract tests
+        run: scripts/run_tests.sh
+
+      - name: Build addon release package
+        run: scripts/build_release.sh
+
+      - name: Verify fresh addon installation
+        run: scripts/verify_release_package.sh
